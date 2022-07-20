@@ -11,7 +11,6 @@ SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST
 		ON titles.pub_id=publishers.pub_id;
         
 #Challenge 2 - Who Have Published How Many At Where?
-
 SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST NAME', pub_name as 'PUBLISHER', COUNT(titles.title) as "TITLE COUNT"
 	FROM authors
 	JOIN titleauthor
@@ -44,6 +43,3 @@ SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST
 		ON titleauthor.title_id = sales.title_id
 	GROUP BY authors.au_id
 	ORDER BY TOTAL DESC
-
-
-
