@@ -22,7 +22,6 @@ SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST
     GROUP BY authors.au_id, pub_name;
 
 #Challenge 3 - Best Selling Authors
-
 SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST NAME', SUM(sales.qty) as TOTAL
 	FROM authors
 	JOIN titleauthor
@@ -33,7 +32,6 @@ SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST
 	ORDER BY TOTAL DESC
     LIMIT 3;
 	
-
 #Challenge 4 - Best Selling Authors Ranking
 SELECT authors.au_id as 'AUTHOR ID', au_lname as 'LAST NAME', au_fname as 'FIRST NAME', COALESCE(SUM(sales.qty), 0) as TOTAL
 	FROM authors
