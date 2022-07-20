@@ -45,4 +45,4 @@ SELECT authors.au_id as `Author ID`, authors.au_lname as `last name`, authors.au
 		on titles.pub_id = publishers.pub_id
 	Group by `Author ID`
     ORDER by sum(titles.ytd_sales) DESC
-    LIMIT 25;
+    LIMIT 23;
