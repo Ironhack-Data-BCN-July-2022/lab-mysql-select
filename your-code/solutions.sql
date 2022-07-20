@@ -22,7 +22,7 @@ SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au
 	GROUP BY authors.au_id, publishers.pub_name
 	ORDER BY authors.au_id desc;
 -- CHALLENGE 3
-SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", COUNT(titles.title_id) AS "TOTAL"
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", sum(titles.ytd_sales) AS "TOTAL"
 	FROM titles
     LEFT JOIN titleauthor 
 		ON titles.title_id = titleauthor.title_id
@@ -34,7 +34,7 @@ SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au
 	ORDER BY TOTAL desc
     LIMIT 3;
 -- CHALLENGE 4
-SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", COUNT(titles.title_id) AS "TOTAL"
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", sum(titles.ytd_sales) AS "TOTAL"
 	FROM titles
     LEFT JOIN titleauthor 
 		ON titles.title_id = titleauthor.title_id
