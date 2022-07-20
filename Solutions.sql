@@ -27,3 +27,27 @@ select authors.au_id as Author_Id, authors.au_lname as Last_Name, authors.au_fna
     
 -- Challenge 3 - Best Selling Authors
 
+ select authors.au_id as Author_Id, authors.au_lname as Last_Name, authors.au_fname as First_name, sum(sales.qty) as Total
+	from authors
+    join titleauthor
+		on authors.au_id = titleauthor.au_id
+	join titles
+		on titles.title_id = titleauthor.title_id
+	join sales
+		on sales.title_id = titles.title_id
+	group by Author_Id, last_name, first_name
+	order by Author_Id desc
+    limit 3; 
+    
+-- Challenge 4 - Best Selling Authors Ranking
+
+ select authors.au_id as Author_Id, authors.au_lname as Last_Name, authors.au_fname as First_name, coalesce(sum(sales.qty),0) as Total
+	from authors
+    left join titleauthor
+		on authors.au_id = titleauthor.au_id
+	left join titles
+		on titles.title_id = titleauthor.title_id
+	left join sales
+		on sales.title_id = titles.title_id
+	group by Author_Id, last_name, first_name
+	order by total desc; 
