@@ -13,7 +13,7 @@ join publishers
 	on titles.pub_id = publishers.pub_id
 order by authors.au_id 
 ;
--- Error Code: 1054. Unknown column 'authors.title_id' in 'on clause'
+
 
 -- CHALLENGE 2
 select authors.au_id as "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname  AS "FIRST NAME", publishers.pub_name AS "PUBLISHER",
@@ -55,4 +55,3 @@ group by authors.au_id
 order by sum(sales.qty) desc
 ;
 
--- Error Code: 1054. Unknown column 'author.au_id' in 'on clause'
